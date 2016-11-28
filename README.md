@@ -1,24 +1,28 @@
-# README
+# Флэшкарточкер
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Первый в мире удобный менеджер флеш-карточек.
 
-Things you may want to cover:
+## Требования и зависимости
+* Ruby version: >= 2.2.5
+* PostgreSQL: >= 9.4
+* rails >= 5.0.0.1
 
-* Ruby version
+## Установка и запуск
+1. Загрузить кодовую базу из репозитория:
+```
+git clone https://github.com/denisgorbunov/flashcards.git
+```
+2. Перейти в каталог приложения
+```
+cd flashcards
+```
+3. Установить/обновить зависимости
+```
+bundle install
+```
+4. Запустить приложение на локальном веб-сервере:
+```
+rails s
+```
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
