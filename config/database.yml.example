@@ -6,7 +6,7 @@ default: &default           #настройки по умолчанию
   encoding: unicode         #указываем кодировку
   database: db_name         #имя БД
   pool: 5                   #число соединений на процесс
-  username: db_usr        #имя пользователя БД
+  username: db_usr          #имя пользователя БД
   password: password        #пароль пользователя
 
 development:                #для development среды
