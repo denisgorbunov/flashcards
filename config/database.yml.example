@@ -1,0 +1,21 @@
+#Пример конфигурации подключения к БД.
+#Убедитесь в наличии `gem 'pg'` в Gemfile
+
+default: &default           #настройки по умолчанию
+  adapter: postgresql       #работаем с postgesql
+  encoding: unicode         #указываем кодировку
+  database: db_name         #имя БД
+  pool: 5                   #число соединений на процесс
+  username: db_usr        #имя пользователя БД
+  password: password        #пароль пользователя
+
+development:                #для development среды
+  <<: *default              #наследуем от настроек по умолчанию
+  database: db_name         #имя БД
+
+test:                       #для test среды
+  <<: *default              #наследуем от настроек по умолчанию
+  database: db_name         #имя БД
+
+production:                 #для production среды
+  <<: *default              #наследуем от настроек по умолчанию
