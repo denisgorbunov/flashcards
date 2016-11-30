@@ -1,4 +1,4 @@
-class CardController < ApplicationController
+class CardsController < ApplicationController
   before_action :card_find, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -18,7 +18,6 @@ class CardController < ApplicationController
       flash[:success] = 'Карточка создана'
       redirect_to card_path(@card)
     else
-      flash[:danger] = 'При сохранении произошла ошибка'
       render 'new'
     end
   end
@@ -27,24 +26,29 @@ class CardController < ApplicationController
   end
 
   def update
-    @card = Card.update_attributes(card_params)
+    @card.update_attributes(card_params)
     if @card.errors.empty?
       flash[:success] = 'Карточка изменена'
       redirect_to card_path(@card)
     else
-      flash[:danger] = 'При сохранении произошла ошибка'
       render 'edit'
     end
   end
 
   def destroy
     @card.destroy
-    redirect_to action: 'index'
+    if @card.errors.empty?
+      flash[:success] = 'Карточка удалена'
+      redirect_to action: 'index'
+    else
+      flash[:danger] = 'При удалении произошла ошибка'
+      render 'index'
+    end
   end
 
   private
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text)
   end
 
   def card_find
