@@ -7,13 +7,15 @@
         <th>Original text</th>
         <th>Translated text</th>
         <th>Review date</th>
+        <th></th>
       </tr>
       <% @cards.each do |c| %>
           <tr>
             <td><%= c.id %></td>
-            <td><%= c.original_text %></td>
+            <td><%= link_to c.original_text, c %></td>
             <td><%= c.translated_text %></td>
             <td><%= c.review_date.strftime("%d/%m/%Y") %></td>
+            <td><%= link_to "Изменить", edit_card_path(c), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", c, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
           </tr>
       <% end %>
 
