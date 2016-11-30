@@ -1,3 +1,6 @@
-<p><%= f.input :original_text, as: :string, label: "Original text", hint: false, placeholder: 'Дом' %></p>
-<p><%= f.input :translated_text, as: :string, label: "Translated text", hint: false, placeholder: 'House' %></p>
+<%= simple_form_for(@card, html: {class: 'form-horizontal'}) do |f| %>
+    <p><%= f.input :original_text, as: :string, label: "Original text", hint: false, placeholder: 'Дом' %></p>
+    <p><%= f.input :translated_text, as: :string, label: "Translated text", hint: false, placeholder: 'House' %></p>
+    <p><%= f.submit "Сохранить", class: "btn btn-sm btn-success" %> <%= link_to "Назад", :back, class: "btn btn-sm btn-primary" %></p>
+<% end %>
 

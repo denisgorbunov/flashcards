@@ -1,7 +1,3 @@
 <%= render 'errors', object: @card %>
 <h2>Редактирование карточки</h2>
-<%= simple_form_for(@card, html: { class: 'form-horizontal' }) do |f| %>
-    <%= render "form", f: f %>
-    <p><%= f.input :review_date, as: :date, disabled: true %></p>
-    <%= f.submit "Сохранить", class: "btn btn-sm btn-success" %> <%= link_to "Назад", :back, class: "btn btn-sm btn-primary" %>
-<% end %>
+<%= render "form" %>
