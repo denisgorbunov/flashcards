@@ -1,0 +1,23 @@
+<% if @cards.empty? %>
+    Нет сохраненных карточек. <%= link_to "Хотите добавить?", new_card_path %>
+<% else %>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Original text</th>
+        <th>Translated text</th>
+        <th>Review date</th>
+        <th></th>
+      </tr>
+      <% @cards.each do |card| %>
+          <tr>
+            <td><%= card.id %></td>
+            <td><%= link_to card.original_text, card %></td>
+            <td><%= card.translated_text %></td>
+            <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
+            <td><%= link_to "Изменить", edit_card_path(card), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", card, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
+          </tr>
+      <% end %>
+
+    </table>
+<% end %>

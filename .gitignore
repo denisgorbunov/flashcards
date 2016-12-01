@@ -20,5 +20,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 /config/database.yml
-.idea/
+.idea/*
 .DS_Store

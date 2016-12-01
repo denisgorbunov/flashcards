@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128161335) do
+ActiveRecord::Schema.define(version: 20161201095631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.text     "original_text"
-    t.text     "translated_text"
-    t.datetime "review_date"
+    t.text     "original_text",   null: false
+    t.text     "translated_text", null: false
+    t.datetime "review_date",     null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
