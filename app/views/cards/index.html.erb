@@ -9,13 +9,13 @@
         <th>Review date</th>
         <th></th>
       </tr>
-      <% @cards.each do |c| %>
+      <% @cards.each do |card| %>
           <tr>
-            <td><%= c.id %></td>
-            <td><%= link_to c.original_text, c %></td>
-            <td><%= c.translated_text %></td>
-            <td><%= c.review_date.strftime("%d/%m/%Y") %></td>
-            <td><%= link_to "Изменить", edit_card_path(c), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", c, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
+            <td><%= card.id %></td>
+            <td><%= link_to card.original_text, card %></td>
+            <td><%= card.translated_text %></td>
+            <td><%= card.review_date.strftime("%d/%m/%Y") %></td>
+            <td><%= link_to "Изменить", edit_card_path(card), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", card, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
           </tr>
       <% end %>
 

@@ -14,7 +14,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.create(card_params)
-    if @card.errors.empty?
+    if @card.valid?
       flash[:success] = 'Карточка создана'
       redirect_to card_path(@card)
     else
@@ -39,7 +39,7 @@ class CardsController < ApplicationController
     @card.destroy
     if @card.errors.empty?
       flash[:success] = 'Карточка удалена'
-      redirect_to action: 'index'
+      redirect_to cards_path
     else
       flash[:danger] = 'При удалении произошла ошибка'
       render 'index'
