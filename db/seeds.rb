@@ -13,13 +13,11 @@ html = open(url)
 doc = Nokogiri::HTML(html)
 words = doc.css("div#post-body-6077576339513753770").text.split("\n") #to_s.gsub('<br>','\n')).text.split('\n').map { |x| x.split(/([^\[]+)(\[[^\]]+\])\s?-\s?(.*)/) }
 
-words.map do |w|
-  w.delete
-end
 
- words.map do |w|
+ words.each do |w|
    word = w.split(/([^\[]+)(\[[^\]]+\])\s?-\s?(.*)/)
    word.delete_if { |x| x.empty? }
-   Card.create!(original_text: word[4], translated_text: word[1])
+   #puts word[2].inspect
+   Card.create!(original_text: word[2], translated_text: word[0])
  end
 
