@@ -27,7 +27,7 @@ class CardsController < ApplicationController
 
   def update
     @card.update_attributes(card_params)
-    if @card.errors.empty?
+    if @card.valid?
       flash[:success] = 'Карточка изменена'
       redirect_to card_path(@card)
     else
