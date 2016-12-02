@@ -8,6 +8,8 @@
 
 require "nokogiri"
 require "open-uri"
+
+
 url = "http://poligloty.blogspot.ru/2013/08/1000-english-words.html"
 html = open(url)
 doc = Nokogiri::HTML(html)
@@ -22,4 +24,5 @@ i=0
    i+=1
  end
 puts "Parsing is finished. Added " + i.to_s + " words"
+
 
