@@ -1,3 +1,13 @@
 <p style="font-size: 22px;">
   Первый в мире удобный менеджер флеш-карточек. Именно так.
 </p>
+<div class="jumbotron" style="text-align: center">
+  <% @random_card.each do |word| %>
+      <h1><%= word.original_text %></h1>
+      <%= form_tag(controller: "home", action: "check", method: "post") do %>
+          <%= hidden_field_tag :card_id, word.id %>
+          <p>Укажите перевод данного слова:<br/><%= text_field_tag :translating_word %></p>
+          <p><%= submit_tag "Проверить" %></p>
+      <% end %>
+  <% end %>
+</div>
