@@ -2,7 +2,6 @@ class Card < ApplicationRecord
   validates :original_text, :translated_text, :review_date, presence: true
   validate :validate_card
   before_validation :set_review_date, on: :create
-  scope :random, -> { where("review_date <= '#{Time.now + 3.days}'").order("RANDOM()").limit(1) }
 
   protected
   def validate_card
@@ -11,5 +10,9 @@ class Card < ApplicationRecord
 
   def set_review_date
     self.review_date ||= Time.now + 3.days
+  end
+
+  def self.random
+    where("review_date <= '#{Date.today}'").order("RANDOM()").first
   end
 end
