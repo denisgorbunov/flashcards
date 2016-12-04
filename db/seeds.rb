@@ -20,7 +20,7 @@ i=0
  words.map do |w|
    word = w.split(/([^\[]+)(\[[^\]|\[|\)]+\]?\[?\)?)\s?-?–?\s?(.*)/)
    word.delete_if { |x| x.empty? }
-   Card.create(original_text: word[2], translated_text: word[0])
+   Card.create(original_text: word[2], translated_text: word[0].strip)
    i+=1
  end
 puts "Parsing is finished. Added " + i.to_s + " words"
