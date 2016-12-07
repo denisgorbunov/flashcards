@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   before(:all) do
-    @card = Card.create({original_text: 'привет', translated_text: 'hello'})
+    create(:card)
   end
 
   it '#set_review_date?' do
