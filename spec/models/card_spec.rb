@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Card, type: :model do
   before(:all) do
-    create(:card)
+    @card = create(:card)
   end
 
   it '#set_review_date?' do
