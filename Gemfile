@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'russian', '~> 0.6.0'
 gem 'simple_form'
 gem 'nokogiri'
-gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 gem 'interactor'
 
 group :development, :test do
