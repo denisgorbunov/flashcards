@@ -1,5 +1,6 @@
-
-factory :card do
-  original_text   { "дом" }
-  translated_text { "house" }
+FactoryGirl.define do
+  factory :card do
+    original_text { "дом" }
+    translated_text { "house" }
+  end
 end
