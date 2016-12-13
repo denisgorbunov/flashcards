@@ -29,6 +29,7 @@
 
 .clearfix:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} html[xmlns].clearfix{display:block;} * html .clearfix{height:1%;}
 
+/*
 #error_explanation {
 .alert();
 .alert-error();
@@ -37,4 +38,4 @@
 
 .field_with_errors {
 .control-group.error();
-}
+}*/
