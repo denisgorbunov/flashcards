@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/denisgorbunov/flashcards.svg?branch=sixth-task)](https://travis-ci.org/denisgorbunov/flashcards)
+
 # Флэшкарточкер
 
 Первый в мире удобный менеджер флеш-карточек.
