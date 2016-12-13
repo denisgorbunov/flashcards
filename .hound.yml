@@ -1,4 +1,8 @@
-Style/FrozenStringLiteralComment:
-  Enabled: false
-StringLiterals:
-  Enabled: false
+ruby:
+  config_file: config/rubocop.yml
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
