@@ -15,12 +15,13 @@ html = open(url)
 doc = Nokogiri::HTML(html)
 words = doc.css("div#post-body-6077576339513753770").text.split("\n")
 words.delete_if { |x| x.empty? }
+user = User.create(email: "test@test.com", password: 123)
 puts "Start parsing..."
 i=0
  words.map do |w|
    word = w.split(/([^\[]+)(\[[^\]|\[|\)]+\]?\[?\)?)\s?-?–?\s?(.*)/)
    word.delete_if { |x| x.empty? }
-   Card.create(original_text: word[2], translated_text: word[0].strip, review_date: (Date.today - 3.days))
+   user.cards.create(original_text: word[2], translated_text: word[0].strip, review_date: (Date.today - 3.days))
    i+=1
  end
 puts "Parsing is finished. Added " + i.to_s + " words"

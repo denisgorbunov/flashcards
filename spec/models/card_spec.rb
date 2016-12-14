@@ -10,7 +10,7 @@ RSpec.describe Card, type: :model do
   end
 
   it '#validate_card' do
-    card = build(:card, original_text: "house", translated_text: "house")
+    card = build(:card, original_text: "house", translated_text: "house", user: create(:user))
     expect(card).to be_invalid
   end
 
