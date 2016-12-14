@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "CheckAvailabilityCards ->", type: :feature do
+RSpec.feature "CheckAvailabilityCards", type: :feature do
   scenario "card not available" do
     visit root_path
     expect(page).to have_text 'Все карточки проверены'

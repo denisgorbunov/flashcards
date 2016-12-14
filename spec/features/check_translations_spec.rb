@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "check translation ->", type: :feature do
+RSpec.feature "check translation", type: :feature do
   before(:each) do
     @card = create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days))
   end
