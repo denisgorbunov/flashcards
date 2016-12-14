@@ -5,7 +5,7 @@ class TrainersController < ApplicationController
     if result.success?
       flash[:success] = 'Правильно! Следующая проверка: ' + @card.review_date.strftime("%d/%m/%Y").to_s
      else
-       flash[:danger] = 'Ошибка!'
+       flash[:danger] = 'Ошибка! '
     end
     redirect_to root_path
   end

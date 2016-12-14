@@ -3,7 +3,7 @@ class CheckTranslate
 
   def call
     if context.word == context.card.translated_text
-      context.card.update_attributes(review_date: Time.now + 3.days)
+      context.card.update_attributes(review_date: Date.today + 3.days)
     else
       context.fail!
     end

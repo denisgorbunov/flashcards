@@ -1,11 +1,17 @@
 <p style="font-size: 22px;">
   Первый в мире удобный менеджер флеш-карточек. Именно так.
 </p>
-<div class="jumbotron" style="text-align: center">
-  <h1><%= @random_card.original_text %></h1>
+<% if @random_card %>
+    <div class="jumbotron" style="text-align: center">
+      <h1><%= @random_card.original_text %></h1>
       <%= form_tag(controller: "trainers", action: "check", method: "post") do %>
           <%= hidden_field_tag :card_id, @random_card.id %>
           <p>Укажите перевод данного слова:<br/><%= text_field_tag :translating_word %></p>
           <p><%= submit_tag "Проверить" %></p>
       <% end %>
-</div>
+    </div>
+<% else %>
+    <div class="jumbotron" style="text-align: center">
+      <h1>Все карточки проверены</h1>
+    </div>
+<% end %>

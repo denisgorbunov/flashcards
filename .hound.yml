@@ -1,4 +1,12 @@
+ruby:
+  config_file: config/rubocop.yml
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+Style/IfUnlessModifier:
+  MaxLineLength: 180
 Style/FrozenStringLiteralComment:
-  Enabled: false
-StringLiterals:
-  Enabled: false
+  EnforcedStyle: never
