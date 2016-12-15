@@ -7,7 +7,7 @@ RSpec.feature "CheckAvailabilityCards", type: :feature do
   end
 
   scenario "card available" do
-    create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days))
+    create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days), user: create(:user))
     visit root_path
     expect(page).to have_text 'Укажите перевод данного слова'
   end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "check translation", type: :feature do
-  let!(:card) { create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days))  }
+  let!(:card) { create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days), user: create(:user))}
 
   scenario "correct translation" do
     visit root_path
