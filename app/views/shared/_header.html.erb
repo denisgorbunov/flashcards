@@ -1,7 +1,68 @@
 <header class="clearfix">
-  <h1>Флэшкарточкер</h1>
-  <ul class="navigation-links">
-    <li><%= link_to "Все карточки", cards_path %></li>
-    <li><%= link_to "Добавить картчоку", new_card_path %></li>
-  </ul>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <div class="navbar-header">
+        <!--        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>-->
+        <div class="navbar-brand" href="#">Флешкарточкер</div>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li <%= is_active(root_path) %>><%= link_to 'Главная', root_path %></li>
+          <% if current_user %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Карточки
+              <span class="caret"></span></a>
+
+                <ul class="dropdown-menu">
+                  <li <%= is_active(cards_path) %>><%= link_to 'Все карточки', cards_path %></li>
+                  <li <%= is_active(new_card_path) %>><%= link_to 'Добавить картчоку', new_card_path %></li>
+                </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Пользователи
+                    <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li <%= is_active(users_path) %>><%= link_to 'Все пользователи', users_path %></li>
+                    <li <%= is_active(new_user_path) %>><%= link_to 'Добавить пользователя', new_user_path %></li>
+                  </ul>
+                </li>
+            <% end %>
+            </ul>
+
+        <!--        <form class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>-->
+        <% if current_user %>
+            <ul class="nav navbar-nav navbar-right">
+              <!--<li><a href="#">Link</a></li>-->
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %>
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Изменить", edit_user_path(current_user.id) %></li>
+                  <li><%= link_to "Выход", :logout, method: :post %></li>
+                </ul>
+              </li>
+            </ul>
+        <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "Регистрация", new_user_path %></li>
+              <li><%= link_to "Вход", :login %></li>
+            </ul>
+        <% end %>
+
+      </div>
+    </div>
+  </nav>
 </header>

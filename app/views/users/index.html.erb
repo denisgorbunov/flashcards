@@ -1,0 +1,19 @@
+<h2>Пользователи</h2>
+<% if @users %>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>E-Mail</th>
+        <th></th>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to "Изменить", edit_user_path(user), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", user, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
+      </tr>
+      <% end %>
+    </table>
+<% else %>
+    <p>Нет сохраненных пользователей. <%= link_to "Хотите добавить?", new_user_path %></p>
+<% end %>

@@ -1,5 +1,6 @@
+<h2>Карточки</h2>
 <% if @cards.empty? %>
-    Нет сохраненных карточек. <%= link_to "Хотите добавить?", new_card_path %>
+    <p>Нет сохраненных карточек. <%= link_to "Хотите добавить?", new_card_path %></p>
 <% else %>
     <table class="table table-striped">
       <tr>
@@ -19,7 +20,7 @@
           </tr>
       <% end %>
       <nav aria-label="Page navigation">
-      <%= will_paginate @cards,  renderer: BootstrapPagination::Rails unless @cards.size < 20 %>
+        <%= will_paginate @cards, renderer: BootstrapPagination::Rails unless @cards.size < 20 %>
       </nav>
     </table>
 <% end %>

@@ -1,0 +1,7 @@
+<%= simple_form_for(@user, html: {class: 'form-horizontal'}) do |f| %>
+    <p><%= f.input :email, label: 'E-Mail', placeholder: 'vasya@pupkin.com' %></p>
+    <p><%= f.input :password, label: 'Пароль' %></p>
+    <p><%= f.input :password_confirmation, label: 'Еще раз пароль' %></p>
+    <p><%= f.submit 'Сохранить', class: 'btn btn-sm btn-success' %> <%= link_to 'Назад', :back, class: 'btn btn-sm btn-primary' %></p>
+<% end %>
+
