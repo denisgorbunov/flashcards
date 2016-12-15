@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "check translation", type: :feature do
   let!(:card) { create(:card, original_text: "дом", translated_text: "house", review_date: (Date.today - 3.days), user: create(:user))}
   before(:each) do
-    login_user("test@test.com", "123")
+    login_user_post("test@test.com", "123")
   end
 
   scenario "correct translation" do

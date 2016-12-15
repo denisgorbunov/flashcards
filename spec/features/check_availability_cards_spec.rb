@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "CheckAvailabilityCards", type: :feature do
   let!(:user) { create(:user)}
   before(:each) do
-    login_user("test@test.com", "123")
+    login_user_post("test@test.com", "123")
   end
   scenario "card not available" do
     visit root_path
