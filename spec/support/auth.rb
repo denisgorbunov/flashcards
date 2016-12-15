@@ -1,12 +1,11 @@
-module TestHelpers
-  module Features
-    def login_user(user, password)
-      visit user_sessions_url
-
-      fill_in 'email',    with: user.email
-      fill_in 'password', with: password
-
-      click_button 'Вход'
+module Sorcery
+  module TestHelpers
+    module Rails
+      module Integration
+        def login_user_post(user, password)
+          page.driver.post(user_sessions_url, { username: user, password: password})
+        end
+      end
     end
   end
 end
