@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   before_action :card_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.paginate(:page => params[:page], :per_page => 20).order('id ASC')
+    @cards = Card.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 20).order('id ASC')
   end
 
   def show
@@ -13,7 +13,7 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = Card.create(card_params)
+    @card = current_user.cards.create(card_params)
     if @card.valid?
       flash[:success] = 'Карточка создана'
       redirect_to card_path(@card)
@@ -52,6 +52,6 @@ class CardsController < ApplicationController
   end
 
   def card_find
-    @card = Card.find(params[:id])
+    @card = current_user.cards.find(params[:id])
   end
 end

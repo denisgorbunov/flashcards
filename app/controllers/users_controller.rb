@@ -15,9 +15,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.valid?
+    if @user.save
       flash[:success] = 'Пользователь успешно создан'
-      redirect_to users_path
+      auto_login(@user)
+      redirect_to(:users)
     else
       render 'new'
     end

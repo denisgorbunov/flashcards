@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
-  skip_before_action :require_login, only: [:index]
   def index
-    @random_card = Card.random
+    @random_card = Card.where(user_id: current_user.id).random
   end
 end
