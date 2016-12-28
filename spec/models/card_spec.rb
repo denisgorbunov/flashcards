@@ -12,9 +12,9 @@ RSpec.describe Card, type: :model do
     expect(card).to be_invalid
   end
 
-#  it 'original_text, translated_text presence?' do
-#    is_expected.to validate_presence_of(:original_text)
-#    is_expected.to validate_presence_of(:translated_text)
-#  end
+  it 'original_text, translated_text presence?' do
+    is_expected.to validate_presence_of(:original_text)
+    is_expected.to validate_presence_of(:translated_text)
+  end
 
 end
