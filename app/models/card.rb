@@ -8,7 +8,7 @@ class Card < ApplicationRecord
 
   protected
   def validate_translated_text
-    errors.add(:translated_text, "не должен совпадать с оригиналом") unless self.original_text.mb_chars.casecmp(self.translated_text.mb_chars) == -1
+    errors.add(:translated_text, "не должен совпадать с оригиналом") unless self.original_text.casecmp(self.translated_text) != 0
   end
 
   def set_review_date
