@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
+  mount_uploader :image, ImageUploader
   validates :original_text, :translated_text, :review_date, presence: true
   validate :check_for_a_match
   before_validation :set_review_date, on: :create
