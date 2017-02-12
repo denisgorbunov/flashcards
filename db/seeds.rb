@@ -15,7 +15,7 @@ html = open(url)
 doc = Nokogiri::HTML(html)
 words = doc.css("div#post-body-6077576339513753770").text.split("\n")
 words.delete_if { |x| x.empty? }
-user = User.create(email: "test@test.com", password: 123)
+user = User.create(email: "test@test.com", password: 123, password_confirmation: 123)
 puts "Start parsing..."
 i=0
  words.map do |w|
