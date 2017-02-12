@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   before_action :card_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.where(user_id: current_user.id).paginate(:page => params[:page], :per_page => 20).order('id ASC')
+    @cards = current_user.cards.paginate(:page => params[:page], :per_page => 20).order('id ASC')
   end
 
   def show
