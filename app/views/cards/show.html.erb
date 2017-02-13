@@ -2,5 +2,7 @@
 <p><b>Original text</b>: <%= @card.original_text %></p>
 <p><b>Translated text</b>: <%= @card.translated_text %></p>
 <p><b>Review date</b>: <%= @card.review_date.strftime("%d/%m/%Y") %></p>
+<p><b>Image</b>:<br/>
+<%= image_tag @card.image.thumb.url if @card.image %></p>
 <%= link_to "Изменить", edit_card_path(@card), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", @card, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %>
 

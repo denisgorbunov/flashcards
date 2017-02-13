@@ -1,5 +1,5 @@
 ruby:
-  config_file: config/rubocop.yml
+  config_file: "config/rubocop.yml"
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes

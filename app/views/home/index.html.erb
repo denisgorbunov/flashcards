@@ -4,6 +4,7 @@
 <% if @random_card %>
     <div class="jumbotron" style="text-align: center">
       <h1><%= @random_card.original_text %></h1>
+      <p><%= image_tag @random_card.image.url if @random_card.image %></p>
       <%= form_tag(controller: "trainers", action: "check", method: "post") do %>
           <%= hidden_field_tag :card_id, @random_card.id %>
           <p>Укажите перевод данного слова:<br/><%= text_field_tag :translating_word %></p>
