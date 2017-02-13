@@ -1,5 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
+  belongs_to :deck
   mount_uploader :image, ImageUploader
   validates :original_text, :translated_text, :review_date, presence: true
   validate :check_for_a_match
@@ -16,7 +17,7 @@ class Card < ApplicationRecord
   end
 
   def set_review_date
-    self.review_date ||= Time.now + 3.days
+    self.review_date ||= Date.today + 3.days
   end
 
 end
