@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170213121736) do
   create_table "decks", force: :cascade do |t|
     t.string   "name",                       null: false
     t.boolean  "active",     default: false
+    t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

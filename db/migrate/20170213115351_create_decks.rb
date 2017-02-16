@@ -3,6 +3,7 @@ class CreateDecks < ActiveRecord::Migration[5.0]
     create_table :decks do |t|
       t.string  :name, null: false
       t.boolean :active, default: false
+      t.integer :user_id
 
       t.timestamps
     end
