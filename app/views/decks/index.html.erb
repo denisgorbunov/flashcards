@@ -14,13 +14,12 @@
           <tr>
             <td><%= deck.id %></td>
             <td><%= link_to deck.name, deck %></td>
-            <td><%= deck.all.size %></td>
-            <td><%= deck.active %></td>
+            <td><%= @decks.size %></td>
+            <td><%= check_box "activate", deck.active %></td>
             <td><%= link_to "Изменить", edit_deck_path(deck), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", deck, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
           </tr>
       <% end %>
       <nav aria-label="Page navigation">
-        <%= will_paginate @deck, renderer: BootstrapPagination::Rails unless @deck.size < 20 %>
       </nav>
     </table>
 <% end %>
