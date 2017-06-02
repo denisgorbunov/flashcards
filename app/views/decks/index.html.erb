@@ -1,0 +1,25 @@
+<h2>Колоды</h2>
+<% if @decks.empty? %>
+    <p>Нет сохраненных колод. <%= link_to "Хотите добавить?", new_deck_path %></p>
+<% else %>
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Название колоды</th>
+        <th>Кол-во карточек</th>
+        <th>Основная?</th>
+        <th></th>
+      </tr>
+      <% @decks.each do |deck| %>
+          <tr>
+            <td><%= deck.id %></td>
+            <td><%= link_to deck.name, deck %></td>
+            <td><%= @decks.size %></td>
+            <td><%= check_box "activate", deck.active %></td>
+            <td><%= link_to "Изменить", edit_deck_path(deck), class: "btn btn-sm btn-primary" %> <%= link_to "Удалить", deck, class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Действительно хотите удалить?"} %></td>
+          </tr>
+      <% end %>
+      <nav aria-label="Page navigation">
+      </nav>
+    </table>
+<% end %>
